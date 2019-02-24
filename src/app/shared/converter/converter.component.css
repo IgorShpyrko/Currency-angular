@@ -1,0 +1,26 @@
+.converter-wrapper {
+  width: 700px;
+  margin: 0 auto;
+};
+
+.input-wrapper {
+  width: 200px;
+  position: relative;
+};
+
+input {
+  width: 100%;
+};
+
+.change-value-wrapper {
+  display: flex;
+  flex-direction: column;
+};
+
+.clear-icon {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
+  border-radius: 50%;
+}

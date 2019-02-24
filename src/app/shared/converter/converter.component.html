@@ -1,0 +1,40 @@
+<div class='converter-wrapper'>
+  <h2>Welcome to currency converter</h2>
+  <div class='change-value-wrapper'>
+    <div class='input-wrapper'>
+      <input 
+        type="text" 
+        value={{curValue}} 
+        placeholder='enter a value to convert' 
+        (input)='handleChangeValue($event)'/>
+      <span class='clear-icon' (click)='clearValue()'>&times;</span>
+    </div>
+  </div>
+  <div *ngIf="currencyPrices">
+    <label for="from">from</label>
+    <select id='from' (change)='handleChangeFrom($event)'>
+      <option *ngFor="let item of currencyPrices | keyvalue" value={{item.key}}>{{item.key}}</option>
+    </select>
+    <label for="to">to</label>
+    <select id='to' (change)='handleChangeTo($event)'>
+        <option *ngFor="let item of currencyPrices | keyvalue" value={{item.key}}>{{item.key}}</option>
+    </select>
+    <button (click)='handleConvert()' >Convert</button>
+  </div>
+
+
+  <!-- HANDLING ERROR FETCH FROM SERVER -->
+  <div *ngIf="errFetch" class="error-message">
+    Couldn`t load data from server
+  </div>
+  
+  <!-- HANDLING ERROR WRONG INPUTy -->
+  <div *ngIf="errInput" class="error-message">
+    You can enter only a numeric value
+  </div>
+  
+  <!-- SHOW THE RESULT -->
+  <div>
+    Result: {{result}}
+  </div>
+</div>
